@@ -1,5 +1,9 @@
 
 var blockMass = [];
+//кол-во фотографий
+var pictureElemensCount = 26;
+var pictureMass = [];
+
 var commentsMass = [
     'Всё отлично! ',
     'В целом всё неплохо. Но не всё. ',
@@ -17,24 +21,22 @@ var descriptionMass = [
   'Цените каждое мгновенье. Цените тех, кто рядом с вами и отгоняйте все сомненья. Не обижайте всех словами...... ',
   'Вот это тачка! '
 ];
-//кол-во фотографий
-var pictureElemensCount = 25;
 
-var pictureMass = [];
-massPushElement(pictureMass,pictureElemensCount);
+
 
 //заполнение массива числами от 1 .. elementCount
 function massPushElement(mass, elementCount) {
-    for(i = 0; i< elementCount; i++){
+    for(var i = 1; i<= elementCount; i++){
         mass.push(i);
     }
 }
+
+massPushElement(pictureMass,pictureElemensCount);
 
 //получение рандомного элемента из массива c удалением
 function getRandomImgUrl(mass) {
     var rand = mass[Math.floor(Math.random() * mass.length)];
     mass.splice(mass.indexOf(rand),1);
-    console.log(mass,rand);
     return rand;
 }
 
@@ -44,31 +46,32 @@ function getRandomLikes(min, max) {
 }
 
 //получение рандомного(-ых) комментариев без удаления
-function commentsGenerate(commentsMass){
-    var comments=[];
+function commentsGenerate(mass){
+    //кол-во комментариев(1 или 2)
     var commentsCount = Math.floor(Math.random()*2+1);
-
-    for(i = 0; i < commentsCount; i++){
-        var rand = Math.floor(Math.random()*(commentsMass.length+1));
-        comments.push(commentsMass[rand]);
-    }
-    return comments;
+    return generator(commentsCount,mass);
 }
 
-
+function generator(Count, mass) {
+    var generatedMass=[];
+    for(var i = 0; i < Count; i++){
+        var rand = Math.floor(Math.random()*(mass.length));
+        generatedMass.push(mass[rand]);
+    }
+    return generatedMass;
+}
 
 //создание массива блоков
 function blockMass_push(elementCount) {
-    for(i = 0; i < elementCount; i++){
-        var block = {};
-        block.url = "../photos" + getRandomImgUrl(pictureMass);
+    for(var i = 0; i < elementCount; i++){
+        console.log('i = '+ i);
+        console.log(pictureMass);
+        var block = [];
+        block.url = "img/" + getRandomImgUrl(window.pictureMass)+ ".jpg";
         block.likes = getRandomLikes(15, 200);
-        block.comments = 'trtrtrtr';
-        block.decksiption = 'rerggfd';
-        blockMass.push(block);
-    }
+        block.decksiption = generator(1,window.descriptionMass);
+        block.comments = commentsGenerate(window.commentsMass);
 
-    for(i = 0; i < blockMass.length; i++){
-        console.log(blockMass[i]);
+        window.blockMass.push(block);
     }
 }
