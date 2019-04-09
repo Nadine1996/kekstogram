@@ -144,6 +144,11 @@
       <div class="gallery-overlay-controls-like">Нравится <span class="likes-count">0</span></div>
       <div class="gallery-overlay-controls-comments"><span class="comments-count">125</span> комментариев</div>
     </div>
+    <div class = "social__comments">
+        <ul>
+
+        </ul>
+    </div>
   </div>
 </div>
 
@@ -155,6 +160,13 @@
       <span class="picture-stat picture-likes"></span>
     </span>
   </a>
+</template>
+
+<template id="comments-template" style="display: none">
+  <li class="social__comment social__comment--text">
+    <img class="social__picture" src="" alt="Аватар комментатора фотографии" width="35" height="35">
+    <p class="social__text"></p>
+  </li>
 </template>
 
 

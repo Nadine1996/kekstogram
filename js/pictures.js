@@ -22,16 +22,12 @@ var descriptionMass = [
   'Вот это тачка! '
 ];
 
-
-
 //заполнение массива числами от 1 .. elementCount
 function massPushElement(mass, elementCount) {
     for(var i = 1; i<= elementCount; i++){
         mass.push(i);
     }
 }
-
-massPushElement(pictureMass,pictureElemensCount);
 
 //получение рандомного элемента из массива c удалением
 function getRandomImgUrl(mass) {
@@ -64,8 +60,6 @@ function generator(Count, mass) {
 //создание массива блоков
 function blockMass_push(elementCount) {
     for(var i = 0; i < elementCount; i++){
-        console.log('i = '+ i);
-        console.log(pictureMass);
         var block = [];
         block.url = "img/" + getRandomImgUrl(window.pictureMass)+ ".jpg";
         block.likes = getRandomLikes(15, 200);
