@@ -777,7 +777,6 @@ input[type=radio]:checked + .upload-effect-label .upload-effect-preview {
   background-position-x: -18px;
 }
 
-
 .footer {
   position: absolute;
   right: 10px;
@@ -862,4 +861,24 @@ input[type=radio]:checked + .upload-effect-label .upload-effect-preview {
 
 .footer-social-item-vk {
   background-position: -84px 0;
+}
+
+/* ------------------------------- */
+
+.social__comments li{
+  display: flex;
+  min-width: 350px;
+}
+
+.social__picture{
+  margin: 10px;
+  font-size: 0;
+  border-radius: 50%;
+}
+
+.social__text {
+  word-wrap: break-word;
+  min-width: 350px;
+  color: #000;
+  text-align: left;
 }
